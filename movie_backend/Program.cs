@@ -1,4 +1,6 @@
 
+using movie_backend.Model;
+
 namespace movie_backend
 {
     public class Program
@@ -31,9 +33,11 @@ namespace movie_backend
             app.MapControllers();
 
             string zipPath = "./movie_metadata.zip";
+            string zipFilename = "movie_metadata.csv";
             string extractDirectory = "./";
-            string unzippedName = "movie_metadata.csv";
-            Datasets.Unzip(zipPath, extractDirectory, unzippedName);
+
+            bool b = Datasets.Unzip(zipPath, zipFilename, extractDirectory);
+            Console.WriteLine($"unzip was sucessfull? { b }");
 
 
 
